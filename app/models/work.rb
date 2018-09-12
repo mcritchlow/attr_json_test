@@ -4,4 +4,5 @@ class Work < ApplicationRecord
 
   # TODO: Agent doesn't have #to_type as it's not an AttrJson model..
   attr_json :creators, Agent.to_type, array: true
+  attr_json :contributors, Agent.to_type, array: true
 end
