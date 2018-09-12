@@ -8,12 +8,10 @@
 ## Testing Metadata
 Example session in `docker-compose exec web bin/rails console`
 ```
-agent = Agent.new(label: 'The Creator', note: 'The first creator')
-=> #<Agent id: nil, json_attributes: {"label"=>"The Creator", "note"=>"The first creator"}>
+agent = Agent.new(label: 'Theodor', note: 'The first creator')
+agent2 = Agent.new(label: 'Dewey', note: 'The second creator')
+agent.save
+agent2.save
 
-work = Work.new(creators: [agent])
-=> BLOWS UP, no type
+work = Work.new(creators: [agent.id, agent2.id])
 ```
-
-
-
