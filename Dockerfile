@@ -2,6 +2,7 @@ FROM ruby:2.5.1-alpine
 
 RUN apk add --no-cache \
   build-base \
+  postgresql \
   postgresql-dev \
   nodejs \
   tzdata
