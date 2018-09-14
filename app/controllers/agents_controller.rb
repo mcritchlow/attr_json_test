@@ -1,4 +1,6 @@
 class AgentsController < ApplicationController
+  before_action :set_agent, only: [:show, :edit, :update, :destroy]
+  before_action :set_type
   def index
     @agents = type_class.all
   end
@@ -22,6 +24,11 @@ class AgentsController < ApplicationController
   end
 
   private
+
+  def set_agent
+    @agent = type_class.find(params[:id])
+  end
+
   def set_type
     @type = type
   end
