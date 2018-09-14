@@ -3,10 +3,10 @@ class Work < ApplicationRecord
   include AttrJson::Record::QueryScopes
 
   # Some 'normal' properties
-  attr_json :description, :string
-  attr_json :brief_description, :string
-  attr_json :identifier, :string
-  attr_json :call_number, :string
+  attr_json :description, :string, rails_attribute: true
+  attr_json :brief_description, :string, rails_attribute: true
+  attr_json :identifier, :string, rails_attribute: true
+  attr_json :call_number, :string, rails_attribute: true
 
   # Use AR w/ STI?
   has_many :creators

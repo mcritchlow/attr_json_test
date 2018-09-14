@@ -1,0 +1,29 @@
+<h1>Works#index</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Brief Description</th>
+      <th>Identifier</th>
+      <th>Call Number</th>
+      <th>Creators</th>
+      <th>Contributors</th>
+      <th></th>
+      <th></th>
+    </tr>
+</thead>
+  <tbody>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= work.description %></td>
+        <td><%= work.brief_description %></td>
+        <td><%= work.identifier %></td>
+        <td><%= work.call_number %></td>
+        <td><%= work.creators.size %></td>
+        <td><%= work.contributors.size %></td>
+        <td><%= link_to 'Edit', edit_work_path(work) %></td>
+        <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

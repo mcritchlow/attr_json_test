@@ -1,0 +1,10 @@
+<%= simple_form_for(@work) do |f| %>
+  <%= f.input :description %><br>
+  <%= f.input :brief_description %><br>
+  <%= f.input :identifier %><br>
+  <%= f.input :call_number %><br>
+  <%= f.association :creators, label_method: :label, as: :select %><br>
+  <%= f.association :contributors, label_method: :label, as: :select %><br>
+
+  <%= f.button :submit %>
+<% end %>
