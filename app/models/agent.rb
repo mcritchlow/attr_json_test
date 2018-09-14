@@ -1,7 +1,6 @@
 class Agent < ApplicationRecord
   include AttrJson::Record
   include AttrJson::Record::QueryScopes
-  belongs_to :work
 
   attr_json :label, :string
   attr_json :alternateLabel, :string
