@@ -2,11 +2,13 @@ class Work < ApplicationRecord
   include AttrJson::Record
   include AttrJson::Record::QueryScopes
 
-  # TODO: Agent doesn't have #to_type as it's not an AttrJson model.
-  # attr_json :creators, Agent.to_type, array: true
-  # attr_json :contributors, Agent.to_type, array: true
+  # Some 'normal' properties
+  attr_json :description, :string
+  attr_json :brief_description, :string
+  attr_json :identifier, :string
+  attr_json :call_number, :string
 
-  # Option 2: Use IDs/ARKs, downside search might be harder?
-  attr_json :creators, :integer, array: true
-  attr_json :contributors, :integer, array: true
+  # Use AR w/ STI?
+  has_many :creators
+  has_many :contributors
 end

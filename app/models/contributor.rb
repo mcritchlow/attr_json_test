@@ -1,0 +1,1 @@
+class Contributor < Agent; end

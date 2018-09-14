@@ -8,10 +8,11 @@
 ## Testing Metadata
 Example session in `docker-compose exec web bin/rails console`
 ```
-agent = Agent.new(label: 'Theodor', note: 'The first creator')
-agent2 = Agent.new(label: 'Dewey', note: 'The second creator')
-agent.save
-agent2.save
+creator = Creator.new(label: 'Theodor', note: 'The first creator')
+contributor = Contributor.new(label: 'Dewey', note: 'Another creator')
 
-work = Work.new(creators: [agent.id, agent2.id])
+work = Work.new(description: 'A Dr.Seuss thing')
+work.creators << creator
+work.contributors << contributor
+work.save
 ```
