@@ -9,18 +9,32 @@ class AgentsController < ApplicationController
   end
 
   def new
+    @agent = type_class.new
   end
 
   def edit
   end
 
   def create
+    @agent = type_class.new(agent_params)
+    if @agent.save
+      redirect_to @agent, notice: "#{type} was successfully created."
+    else
+      render action: 'new'
+    end
   end
 
   def update
+    if @agent.update(agent_params)
+      redirect_to @agent, notice: "#{type} was successfully updated."
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
+    @agent.destroy
+    redirect_to agents_url
   end
 
   private
@@ -39,5 +53,11 @@ class AgentsController < ApplicationController
 
   def type_class
     type.constantize
+  end
+
+  def agent_params
+    params.require(type.underscore.to_sym).permit(:label, :alternateLabel,
+                                                  :orcid, :note,
+                                                  :identifier, :type)
   end
 end

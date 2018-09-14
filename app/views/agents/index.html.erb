@@ -25,8 +25,8 @@
         <td><%= agent.note %></td>
         <td><%= link_to "See all #{agent.type.pluralize}", sti_agent_path(agent.type) %></td>
         <td><%= link_to 'Show', sti_agent_path(agent.type, agent) %></td>
-        <td><%= link_to 'Edit', "" %></td>
-        <td><%= link_to 'Destroy', "", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', sti_agent_path(agent.type, agent, :edit) %></td>
+        <td><%= link_to 'Destroy', sti_agent_path(agent.type, agent), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

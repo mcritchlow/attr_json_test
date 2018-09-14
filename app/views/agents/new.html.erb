@@ -1,2 +1,4 @@
 <h1>Agents#new</h1>
-<p>Find me in app/views/agents/new.html.erb</p>
+<h1>New <%=  "#{@type.capitalize}" %></h1>
+<%= render 'form' %>
+<%= link_to 'Back', sti_agent_path(@type) %>

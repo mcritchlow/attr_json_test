@@ -1,2 +1,4 @@
 <h1>Agents#edit</h1>
-<p>Find me in app/views/agents/edit.html.erb</p>
+<h1>Editing <%= "#{@type}" %></h1>
+<%= render 'form' %>
+<%= link_to 'Back', sti_agent_path(@type) %>
